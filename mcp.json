@@ -1,0 +1,51 @@
+{
+  "mcpServers": {
+    "anders-celsius-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "CELSIUS",
+        "TARGET_CHAIN": "Sui",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "calibrate_centigrade_phase_boundaries",
+          "description": "Calibrates decimal 100-degree division between pure water freezing and boiling at standard atmosphere",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "raw_reading": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "raw_reading"
+            ]
+          }
+        },
+        {
+          "name": "correlate_auroral_geomagnetic_fluctuations",
+          "description": "Measures compass needle deflections induced by intense northern lights geomagnetic storms",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "geomagnetic_index_kp": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "geomagnetic_index_kp"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
